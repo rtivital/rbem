@@ -1,0 +1,48 @@
+{
+  "name": "rbem",
+  "version": "1.0.0",
+  "description": "tiny library for bem notations",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npm run lint && npm run testonly",
+    "testonly": "tape --require babel-register tests/**/*.js | tap-spec",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build": "webpack --progress"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtivital/rbem.git"
+  },
+  "keywords": [
+    "bem",
+    "react",
+    "component"
+  ],
+  "author": "Vitaly Rtishchev <rtivital@gmail.com> (http://github.com/rtivital)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rtivital/rbem/issues"
+  },
+  "homepage": "https://github.com/rtivital/rbem#readme",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.7.7",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-register": "^6.14.0",
+    "eslint": "^3.3.1",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.16.0",
+    "pre-commit": "^1.1.3",
+    "rimraf": "^2.5.4",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0",
+    "tape-catch": "^1.0.6",
+    "webpack": "^1.13.0"
+  }
+}
