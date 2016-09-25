@@ -8,7 +8,7 @@ export function applyModifiers(instance, modifiers, separator = '--') {
     : instance;
 
   if (isString(modifiers)) {
-    return selector;
+    return `${selector}${separator}${modifiers}`;
   }
 
   if (Array.isArray(modifiers)) {
@@ -17,7 +17,10 @@ export function applyModifiers(instance, modifiers, separator = '--') {
 
     let result = selector;
     while (length--) {
-      result += ` ${selector}${separator}${modifiers[length - 1]}`;
+      const modifier = modifiers[length];
+      if (modifier) {
+        result += ` ${selector}${separator}${modifier}`;
+      }
     }
 
     return result;
@@ -29,7 +32,7 @@ export function applyModifiers(instance, modifiers, separator = '--') {
 
     let result = selector;
     while (length--) {
-      const key = keys[length - 1];
+      const key = keys[length];
       if (modifiers[key]) {
         result += ` ${selector}${separator}${key}`;
       }
