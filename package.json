@@ -9,7 +9,9 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "lint:tests": "eslint tests --fix",
-    "build": "webpack --progress"
+    "build": "webpack --progress",
+    "clean": "rimraf lib",
+    "prepublish": "npm run clean && npm test && npm run build"
   },
   "pre-commit": [
     "test"
