@@ -8,6 +8,7 @@
     "testonly": "tape --require babel-register tests/**/*.js | tap-spec",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
+    "lint:tests": "eslint tests --fix",
     "build": "webpack --progress"
   },
   "pre-commit": [
@@ -19,8 +20,7 @@
   },
   "keywords": [
     "bem",
-    "react",
-    "component"
+    "react"
   ],
   "author": "Vitaly Rtishchev <rtivital@gmail.com> (http://github.com/rtivital)",
   "license": "MIT",
