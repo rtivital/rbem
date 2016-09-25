@@ -4,5 +4,9 @@
   "env": {
     "browser": true,
     "node": true
+  },
+  "rules": {
+    "no-plusplus": 0,
+    "import/no-extraneous-dependencies": 0,
   }
 }
