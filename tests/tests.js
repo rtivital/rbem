@@ -62,7 +62,7 @@ test('block function with invalid params', (t) => {
 });
 
 const applyStringModifier = selector =>
-  modifier => `${selector}--${modifier}`;
+  modifier => `${selector} ${selector}--${modifier}`;
 
 const applyArrayModifiers = selector =>
   (modifiers) => {

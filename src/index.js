@@ -1,5 +1,5 @@
 function isString(value) {
-  return typeof value === 'string';
+  return typeof value === 'string' && value.length;
 }
 
 export function applyModifiers(instance, modifiers, separator = '--') {
@@ -8,7 +8,7 @@ export function applyModifiers(instance, modifiers, separator = '--') {
     : instance;
 
   if (isString(modifiers)) {
-    return `${selector}${separator}${modifiers}`;
+    return `${selector} ${selector}${separator}${modifiers}`;
   }
 
   if (Array.isArray(modifiers)) {
@@ -18,7 +18,7 @@ export function applyModifiers(instance, modifiers, separator = '--') {
     let result = selector;
     while (length--) {
       const modifier = modifiers[length];
-      if (modifier) {
+      if (isString(modifier)) {
         result += ` ${selector}${separator}${modifier}`;
       }
     }
@@ -33,7 +33,7 @@ export function applyModifiers(instance, modifiers, separator = '--') {
     let result = selector;
     while (length--) {
       const key = keys[length];
-      if (modifiers[key]) {
+      if (modifiers[key] && isString(key)) {
         result += ` ${selector}${separator}${key}`;
       }
     }
@@ -48,9 +48,9 @@ export function block(b, separator = '__') {
   const element = function element(e) {
     if (!isString(b)) { return ''; }
     return isString(e) ? `${b}${separator}${e}` : b;
-  }
+  };
 
   Object.defineProperty(element, 'bemModule', { value: true });
-  
+
   return element;
 }
