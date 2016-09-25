@@ -45,10 +45,12 @@ export function applyModifiers(instance, modifiers, separator = '--') {
 }
 
 export function block(b, separator = '__') {
-  return function element(e) {
+  const element = function element(e) {
     if (!isString(b)) { return ''; }
     return isString(e) ? `${b}${separator}${e}` : b;
-  };
-}
+  }
 
-Object.defineProperty(block, 'bemModule', { value: true });
+  Object.defineProperty(element, 'bemModule', { value: true });
+  
+  return element;
+}
