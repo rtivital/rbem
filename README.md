@@ -34,7 +34,7 @@ const text = btn('text'); // -> 'button__text'
 import { block, applyModifiers } from 'rbem';
 
 const btn = block('button');
-const primayButton = applyModifiers(btn, 'primary'); // -> 'button--primary'
+const primaryButton = applyModifiers(btn, 'primary'); // -> 'button--primary'
 const icon = btn('icon'); // -> 'button__icon'
 const lightIcon = applyModifiers(icon, 'light');
 // -> 'button__icon button__icon--light'
